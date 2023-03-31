@@ -1,0 +1,135 @@
+<!doctype html>
+
+
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Change Letters </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <style>
+        .container {
+            flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: rgb(170, 169, 169);
+                    min-height: 500px;
+                    max-width: 1000px;
+                    margin-top: 30px;
+                  
+        }
+     
+    </style>
+
+
+</head>
+
+
+
+<body style="background-color: bisque;">
+
+
+
+
+    <div class="container mt-5" >
+        <div class="row">
+         <form style="text-align: center;">
+            <div class="form-group">
+                <label for="Text"> Change Letters App</label>
+                <input type="Text" class="form-control" id="Text" placeholder="Text">
+
+            </div>
+            <button type="button" onclick="ChangeLetters(document.getElementById('Text').value);"
+                class="btn btn-success">Submit</button>
+        </form>
+    </div>
+    <div class="row mt-5">
+        <form>
+          <div class="form-group">
+            <label for="outputCapital">Capital Letters:</label>
+            <input type="text" class="form-control" id="outputCapital" disabled>
+          </div>
+          <div class="form-group">
+            <label for="outputLower">Lowercase Letters:</label>
+            <input type="text" class="form-control" id="outputLower" disabled>
+          </div>
+          <div class="form-group">
+            <label for="outputCount">Number of Letters:</label>
+            <input type="text" class="form-control" id="outputCount" disabled>
+          </div>
+          <div class="form-group">
+            <label for="outputSpaces">Number of Spaces:</label>
+            <input type="text" class="form-control" id="outputSpaces" disabled>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+
+
+    </div>
+    
+
+    <script>
+        // function ChangeLetters(data) {
+        //     alert(" Get Capital : " + ToCapital(data) + " -  Get Lower : " + ToLower(data) + " - Get Number : " +
+        //         CountLetters(data) + " Get Speces : " + CountEmptyLatters(data));
+
+    function ChangeLetters(data) {
+    var capital = ToCapital(data);
+    var lower = ToLower(data);
+    var count = CountLetters(data);
+    var spaces = CountEmptyLatters(data);
+
+    document.getElementById('outputCapital').value = capital;
+    document.getElementById('outputLower').value = lower;
+    document.getElementById('outputCount').value = count;
+    document.getElementById('outputSpaces').value = spaces;
+}
+
+
+        function ToCapital(data) {
+            return data.toUpperCase();
+        }
+
+        function ToLower(data) {
+            return data.toLowerCase();
+        }
+
+        function CountLetters(data) {
+            return data.length;
+        }
+
+        function CountEmptyLatters(data) {
+
+            var arrayletters = data.split("");
+            var empryspaces = 0;
+
+
+            for (var i = 0; i < arrayletters.length; i++) {
+                if (arrayletters[i] === " ") {
+                    empryspaces++;
+                }
+            }
+            return empryspaces;
+        }
+    </script>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
+    </script>
+</body>
